@@ -14,7 +14,8 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "cordova-android": "^9.1.0",
-    "cordova-plugin-whitelist": "^1.3.4"
+    "cordova-plugin-whitelist": "^1.3.4",
+    "onesignal-cordova-plugin": "github:OneSignal/OneSignal-Cordova-SDK#feat/app-defined-set-language"
   },
   "cordova": {
     "plugins": {
@@ -24,8 +25,5 @@
     "platforms": [
       "android"
     ]
-  },
-  "dependencies": {
-    "onesignal-cordova-plugin": "3.0.0-beta2"
   }
 }

@@ -26,4 +26,6 @@ function onDeviceReady() {
 
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
     document.getElementById('deviceready').classList.add('ready');
+    window.plugins.OneSignal.setAppId("0954e505-67a2-4e29-a052-9679afca8e6b");
+    window.plugins.OneSignal.setLanguage("fr");
 }
