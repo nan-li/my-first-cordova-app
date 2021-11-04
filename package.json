@@ -23,11 +23,11 @@
       "onesignal-cordova-plugin": {}
     },
     "platforms": [
-      "android",
-      "ios"
+      "ios",
+      "android"
     ]
   },
   "dependencies": {
-    "onesignal-cordova-plugin": "github:OneSignal/OneSignal-Cordova-SDK#feat/app-defined-set-language"
+    "onesignal-cordova-plugin": "3.0.0"
   }
 }
