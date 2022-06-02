@@ -13,9 +13,10 @@
   "author": "Apache Cordova Team",
   "license": "Apache-2.0",
   "devDependencies": {
-    "cordova-android": "^9.1.0",
+    "cordova-android": "^10.0.0",
     "cordova-ios": "^6.2.0",
-    "cordova-plugin-whitelist": "^1.3.4"
+    "cordova-plugin-whitelist": "^1.3.4",
+    "onesignal-cordova-plugin": "file:../../GitHub/OneSignal-Cordova-SDK"
   },
   "cordova": {
     "plugins": {
@@ -26,8 +27,5 @@
       "ios",
       "android"
     ]
-  },
-  "dependencies": {
-    "onesignal-cordova-plugin": "3.0.0"
   }
 }

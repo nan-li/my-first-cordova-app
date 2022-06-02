@@ -26,9 +26,36 @@ function onDeviceReady() {
 
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
     
+    window.plugins.OneSignal.setExternalUserId("someperson");
     window.plugins.OneSignal.setAppId("77e32082-ea27-42e3-a898-c72e141824ef");
     window.plugins.OneSignal.promptForPushNotificationsWithUserResponse(function(accepted) {
         console.log("User accepted notifications: " + accepted);
+    });
+    window.plugins.OneSignal.setInAppMessageClickHandler(function(result){
+        let firstClick = result.first_click;
+        let closesMessage = result.closes_message;
+        let clickUrl = result.click_url;
+        let clickName = result.click_name;
+        //console.log('💛💛💛 setInAppMessageClickHandler with json: ' + JSON.stringify(result));
+
+    });
+
+    window.plugins.OneSignal.setInAppMessageLifecycleHandler({
+        // onWillDisplayInAppMessage: message => {
+        //     console.log("💛 OneSignal: will display IAM: ", message.messageId);
+        // },
+        onDidDisplayInAppMessage: message => {
+            console.log("💛 OneSignal: did display IAM: ", message);
+        },
+        // onWillDismissInAppMessage: message => {
+        //     console.log("💛 OneSignal: will dismiss IAM: ", message.messageId)
+        // },
+        // onWillDismissInAppMessage: function(message) {
+        //     console.log("💛 OneSignal: NEW will dismiss IAM: ", message.messageId);
+        // },
+        onDidDismissInAppMessage: message => {
+            console.log("💛 OneSignal: did dismiss IAM: ", message.messageId);
+        }
     });
 }
 
@@ -46,6 +73,17 @@ function getDeviceState() {
     window.plugins.OneSignal.getDeviceState(function(stateChanges) {
         console.log('💛💛💛 OneSignal getDeviceState: ' + JSON.stringify(stateChanges));
     });
+}
+
+document.getElementById("setLanguage").addEventListener("click", setLanguage);
+function setLanguage() {
+    console.log('💛💛💛 setLanguage');
+    window.plugins.OneSignal.setLanguage("ko", (res) => {
+        console.log('💛💛💛 OneSignal setLanguage callback success: ' + JSON.stringify(res));
+    }, (res) => {
+        console.log('💛💛💛 OneSignal setLanguage callback failure: ' + JSON.stringify(res));
+    }
+    )
 }
 
 document.getElementById("getTriggerValueForKey").addEventListener("click", getTriggerValueForKey);
